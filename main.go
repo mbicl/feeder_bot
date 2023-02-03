@@ -27,21 +27,6 @@ func main() {
 			}
 		} else {
 			sendToAdmin(m)
-			if len(m.Text) > 0 {
-				client.SendMessage(admin_id, m.Chat.ID+"\n"+m.Chat.FirstName+" "+m.Chat.LastName+"(@"+m.Chat.Username+")"+" dan xabar:\n\n"+m.Text)
-			}
-			if m.Sticker != nil {
-				client.SendMessage(admin_id, m.Chat.ID+"\n"+m.Chat.FirstName+" "+m.Chat.LastName+"(@"+m.Chat.Username+")"+" sticker jo'natdi:\n\n"+m.Text)
-				client.SendSticker(admin_id, m.Sticker.FileID)
-			}
-			if m.Audio != nil {
-				m.Audio.Title = "salom"
-				client.SendAudio(
-					admin_id,
-					m.Audio.FileID,
-					tbot.OptCaption(m.Chat.ID+"\n"+m.Chat.FirstName+" "+m.Chat.LastName+"(@"+m.Chat.Username+")"+" audio jo'natdi"),
-				)
-			}
 		}
 	})
 
